@@ -1,5 +1,5 @@
 import cpp
 
 from MacroInvocation macroInvocation
-where macroInvocation.getParentInvocation().getMacroName() = [ "ntohs", "ntohl" , "ntohll" ]
+where macroInvocation.getMacro().getName().regexpMatch("ntoh.*")
 select macroInvocation
