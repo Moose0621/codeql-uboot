@@ -23,7 +23,7 @@ class Config extends TaintTracking::Configuration {
   }
   override predicate isSink(DataFlow::Node sink) {
     // TODO
-    exists(MacroInvocation tm | tm.getMacro().getName().regexpMatch("ntoh.*") and tm.getExpr() = sink.asExpr())
+    exists(FunctionCall f | f.getTarget().hasName("memcpy") | f.getArgument(2)= sink.asExpr())
   }
 }
 
