@@ -4,7 +4,7 @@ class NetworkByteSwap extends Expr {
   NetworkByteSwap () {
     // TODO: replace <class> and <var>
     exists(MacroInvocation tempMac |
-      tempMac.getMacro().getName().regexpMatch("ntoh.*")
+      this = tempMac.getExpr() and tempMac.getMacro().getName().regexpMatch("ntoh.*")
     )
   }
 }
